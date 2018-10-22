@@ -53,4 +53,4 @@ cd cowpatty-4.6
 make cowpatty
 sudo cp cowpatty /usr/bin`
 
-#TO BE CONTINUED UNDER CONSTRUCTION
+# **__TO BE CONTINUED UNDER CONSTRUCTION__**
