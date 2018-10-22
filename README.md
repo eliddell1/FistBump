@@ -31,6 +31,10 @@ This is a project to create a handheld device used to capture WPA/WPA2 handshake
 
 1 32gb class 10 mirco sd card for pi boot image
 
+1 Pwerboost 1000c or 500c https://www.adafruit.com/product/2465
+
+1 LiPo rechargable 3.7v 1200mAh battery https://www.amazon.com/Battery-Packs-Lithium-Polymer-1200mAh/dp/B00J2QET64/ref=sr_1_5?s=electronics&ie=UTF8&qid=1540227974&sr=1-5&keywords=lipo+battery
+
 # Software Dependencies
 This rep will supply a ready to go image that you could just write to micro sd or should you choose to build this yourself be aware of the following dependencies
 
