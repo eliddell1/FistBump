@@ -1,4 +1,3 @@
-![alt text](https://banner2.kisspng.com/20180517/zaw/kisspng-fist-bump-fist-pump-clip-art-5afdcf2b50df07.5263023215265830833313.jpg)
 # FistBump
 ProtoType for a handheld device used to grab WPA four way handshakes
 
