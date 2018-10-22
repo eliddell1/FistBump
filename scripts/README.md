@@ -1,0 +1,1 @@
+This Folder should be dropped right in the /home/pi/ directory of your pi's os, maintaining the file structure here with in.  I you alter the file paths be sure to update arm_trigger.py and fistbump.sh accordingly as well as your cron and /etc/rc.local files.  Or just use the supplied pi image
