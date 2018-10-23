@@ -14,7 +14,7 @@ Don't be a jerk!_
 ## Parts List
 
 * [1 pi zero v1.3](https://www.raspberrypi.org/products/raspberry-pi-zero/)
-**__Don't use the wifi model as the chip doesn't support monitor/package injection and creates interferience on usb hub__**
+**_Do NOT** use the wifi model as the chip doesn't support monitor/package injection and creates interferience on usb hub_
 
 * [1 zero4u usb hub adapter](https://www.adafruit.com/product/3298?gclid=Cj0KCQjw6rXeBRD3ARIsAD9ni9CGzOos99HaKls0MxgqrZMt_sKTnR6LVGsSJiN6rdDrbmr9ndM0L3QaAk_SEALw_wcB)
 
