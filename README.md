@@ -26,21 +26,23 @@ Don't be a jerk!_
 
 * [3 1N4007 diodes]( https://www.amazon.com/100-Pieces-1N4007-Rectifier-Electronic/dp/B079KBFKK5/ref=sr_1_1_sspa?ie=UTF8&qid=1540222123&sr=8-1-spons&keywords=1n4007+diode&psc=1)
 
-* [1 small momentary button for power button](https://www.amazon.com/GZFY-6x6x4-5mm-Momentary-Tactile-Button/dp/B01N6GU7TA/ref=sr_1_14?ie=UTF8&qid=1540222185&sr=8-14&keywords=small+momentary+button)
+* 1 [small momentary button for power button](https://www.amazon.com/GZFY-6x6x4-5mm-Momentary-Tactile-Button/dp/B01N6GU7TA/ref=sr_1_14?ie=UTF8&qid=1540222185&sr=8-14&keywords=small+momentary+button)
 
-* [1 regular momentary button for Attack Trigger](https://www.amazon.com/Cylewet-12x12x7-3mm-Momentary-Tactile-Arduino/dp/B01NCQVGLC/ref=sr_1_9?ie=UTF8&qid=1540222185&sr=8-9&keywords=small+momentary+button)
+* 1 [regular momentary button for Attack Trigger](https://www.amazon.com/Cylewet-12x12x7-3mm-Momentary-Tactile-Arduino/dp/B01NCQVGLC/ref=sr_1_9?ie=UTF8&qid=1540222185&sr=8-9&keywords=small+momentary+button)
 
-* [1 2.5 pi nylon screw set](https://www.adafruit.com/product/3299)
+* 1 [2.5 pi nylon screw set](https://www.adafruit.com/product/3299)
 
-* [1 canaKit Wifi adapter](https://www.amazon.com/gp/product/B00GFAN498/ref=oh_aui_detailpage_o00_s01?ie=UTF8&psc=1) capable of packet injection and small YAY!) or you could also use [this guy though if you want and even smaller profile but its not as strong]( https://www.amazon.com/gp/product/B019XUDHFC/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1)
+* 1 [canaKit Wifi adapter](https://www.amazon.com/gp/product/B00GFAN498/ref=oh_aui_detailpage_o00_s01?ie=UTF8&psc=1) capable of packet injection and small YAY!) or you could also use [this guy though if you want and even smaller profile but its not as strong]( https://www.amazon.com/gp/product/B019XUDHFC/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1)
 
-* [1 lo profile sandisk flash storage for saving handshakes in a removable manner](https://www.amazon.com/SanDisk-Cruzer-Low-Profile-Drive-SDCZ33-008G-B35/dp/B005FYNSUA/ref=sr_1_7?s=electronics&ie=UTF8&qid=1540222662&sr=1-7&keywords=sandisk+flash+drive+8gb)
+* 1 [lo profile sandisk flash storage for saving handshakes in a removable manner](https://www.amazon.com/SanDisk-Cruzer-Low-Profile-Drive-SDCZ33-008G-B35/dp/B005FYNSUA/ref=sr_1_7?s=electronics&ie=UTF8&qid=1540222662&sr=1-7&keywords=sandisk+flash+drive+8gb)
 
 * 1 32gb class 10 mirco sd card for pi boot image
 
 * 1 [Pwerboost 1000c or 500c](https://www.adafruit.com/product/2465)
 
 * 1 [LiPo rechargable 3.7v 1200mAh battery] (https://www.amazon.com/Battery-Packs-Lithium-Polymer-1200mAh/dp/B00J2QET64/ref=sr_1_5?s=electronics&ie=UTF8&qid=1540227974&sr=1-5&keywords=lipo+battery)
+
+* 1 [Pimoroni Blinkt!](https://shop.pimoroni.com/products/blinkt) __this will be your status indicator__
 
 # Software Dependencies
 This repository will supply a ready to go image that you could just write to micro sd or should you choose to build this yourself be aware of the following dependencies
