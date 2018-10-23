@@ -40,7 +40,7 @@ Don't be a jerk!_
 
 * 1 [Pwerboost 1000c or 500c](https://www.adafruit.com/product/2465)
 
-* 1 [LiPo rechargable 3.7v 1200mAh battery] (https://www.amazon.com/Battery-Packs-Lithium-Polymer-1200mAh/dp/B00J2QET64/ref=sr_1_5?s=electronics&ie=UTF8&qid=1540227974&sr=1-5&keywords=lipo+battery)
+* 1 [LiPo rechargable 3.7v 1200mAh battery](https://www.amazon.com/Battery-Packs-Lithium-Polymer-1200mAh/dp/B00J2QET64/ref=sr_1_5?s=electronics&ie=UTF8&qid=1540227974&sr=1-5&keywords=lipo+battery)
 
 * 1 [Pimoroni Blinkt!](https://shop.pimoroni.com/products/blinkt) _this will be your status indicator_
 
