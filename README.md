@@ -42,7 +42,7 @@ Don't be a jerk!_
 
 * 1 [LiPo rechargable 3.7v 1200mAh battery] (https://www.amazon.com/Battery-Packs-Lithium-Polymer-1200mAh/dp/B00J2QET64/ref=sr_1_5?s=electronics&ie=UTF8&qid=1540227974&sr=1-5&keywords=lipo+battery)
 
-* 1 [Pimoroni Blinkt!](https://shop.pimoroni.com/products/blinkt) __this will be your status indicator__
+* 1 [Pimoroni Blinkt!](https://shop.pimoroni.com/products/blinkt) _this will be your status indicator_
 
 # Software Dependencies
 This repository will supply a ready to go image that you could just write to micro sd or should you choose to build this yourself be aware of the following dependencies
