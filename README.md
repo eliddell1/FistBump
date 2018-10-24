@@ -57,7 +57,7 @@ cd cowpatty-4.6
 make cowpatty
 sudo cp cowpatty /usr/bin`
 
-*blinkt! python library
+* blinkt! python library
 `curl https://get.pimoroni.com/blinkt | bash`
 
 # **__TO BE CONTINUED UNDER CONSTRUCTION__**
