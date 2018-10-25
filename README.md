@@ -40,7 +40,7 @@ _Do **NOT** use the wifi model as the chip doesn't support monitor/package injec
 
 * 1 [Pwerboost 1000c or 500c](https://www.adafruit.com/product/2465)
 
-* 1 [LiPo rechargable 3.7v 1200mAh battery](https://www.amazon.com/Battery-Packs-Lithium-Polymer-1200mAh/dp/B00J2QET64/ref=sr_1_5?s=electronics&ie=UTF8&qid=1540227974&sr=1-5&keywords=lipo+battery)
+* 1 [3.7V 850mAh 902144 Lipo battery Rechargeable Lithium Polymer ion Battery Pack with JST Connector](https://www.amazon.com/gp/product/B07BTK57CF/ref=od_aui_detailpages00?ie=UTF8&psc=1) _size matters we want a low profile as we will have a tight fit_
 
 * 1 [Pimoroni Blinkt!](https://shop.pimoroni.com/products/blinkt) _this will be your status indicator_
 
