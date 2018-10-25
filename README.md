@@ -36,7 +36,7 @@ _Do **NOT** use the wifi model as the chip doesn't support monitor/package injec
 
 * 1 [lo profile sandisk flash storage for saving handshakes in a removable manner](https://www.amazon.com/SanDisk-Cruzer-Low-Profile-Drive-SDCZ33-008G-B35/dp/B005FYNSUA/ref=sr_1_7?s=electronics&ie=UTF8&qid=1540222662&sr=1-7&keywords=sandisk+flash+drive+8gb)
 
-* 1 32gb class 10 mirco sd card for pi boot image
+* 1 [16-32gb class 10 mirco sd card for pi boot image](https://www.amazon.com/s/ref=nb_sb_ss_i_5_10?url=search-alias%3Delectronics&field-keywords=16gb+micro+sd+card+class+10&sprefix=16gb+micro%2Celectronics%2C132&crid=5DO4BAWIZ2SP)
 
 * 1 [Pwerboost 1000c or 500c](https://www.adafruit.com/product/2465)
 
