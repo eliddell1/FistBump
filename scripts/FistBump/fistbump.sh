@@ -141,7 +141,7 @@ echo $c
 kill $INDI
 
 #did we get a new handshake?
-if [ $captured > $prevCap ]; then
+if [ $captured -gt $prevCap ]; then
 	python /home/pi/FistBump/rgb.py 255 0 255 &
 else
 	python /home/pi/FistBump/rgb.py 255 150 0 &
