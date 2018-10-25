@@ -26,6 +26,6 @@ print("Setting Blinkt to {r},{g},{b}".format(r=r, g=g, b=b))
 
 blinkt.set_clear_on_exit(False)
 
-blinkt.set_all(r, g, b)
+blinkt.set_all(r, g, b, .1)
 
 blinkt.show()

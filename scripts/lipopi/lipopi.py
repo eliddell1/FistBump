@@ -7,6 +7,8 @@
 
 # See the README file for details on how to set this up with systemd
 
+# this script is called by /etc/systemd/system/lipopi.service
+
 # This version uses the GPIO event trigger machinery
 
 # 2016 - Robert Jones - Freely distributed under the MIT license
@@ -46,6 +48,7 @@ def lipopi_setup():
 def lipopi_user_shutdown(channel):
     global lipopi
 
+    os.system("sudo python /home/pi/FistBump/rgb.py 255 150 0")
     cmd = "sudo wall 'System shutting down in %d seconds'" % lipopi['shutdown_wait']
     os.system(cmd)
 
@@ -63,7 +66,7 @@ def lipopi_user_shutdown(channel):
 
 def lipopi_low_battery_shutdown(channel):
     global lipopi
-
+    os.system("sudo python /home/pi/FistBump/rgb.py 255 150 0")
     cmd = "sudo wall 'System shutting down in %d seconds'" % lipopi['shutdown_wait']
     os.system(cmd)
 

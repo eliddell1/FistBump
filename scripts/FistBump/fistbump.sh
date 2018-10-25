@@ -21,7 +21,7 @@ else
 fi
 
 # ---------------------------------------------------------------------------------------------------- start monitor mode 
-python /home/pi/FistBump/random_purple.py &
+python /home/pi/FistBump/purple_scan.py &
 INDI=$!
 
 # Network Scan Time in seconds
@@ -36,7 +36,7 @@ sleep 2
 kill $INDI
 
 # ---------------------------------------------------------------------------------------------------- start ap scan
-python /home/pi/FistBump/purple_scan.py &
+python /home/pi/FistBump/random_purple.py &
 INDI=$!
 
 echo "------------------Starting Scan"

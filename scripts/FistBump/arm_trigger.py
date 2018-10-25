@@ -109,11 +109,15 @@ time.sleep(1)
 
 while fb['running'] != True:
 	num = len([f for f in os.listdir("/media/usb0")])
-	while num > 0:
-		print ("num:",num)
-		puls()
-		num = num -1
-		print ("sleep")
+	if num > 0:
+		while num > 0:
+			print ("num:",num)
+			puls()
+			num = num -1
+			print ("sleep")
+	else :
+		blinkt.set_pixel(1, 0, 255, 0, .1)
+		blinkt.show()
 	time.sleep(2)
 
 #time.sleep(6000)
