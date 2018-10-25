@@ -1,24 +1,28 @@
 #!/bin/bash
-
 # VARIABLES
-#change to match your external thumb drive
+# ------------------------------------ ------------------------------------------------------------ check for removable storage 
 bootydir="/media/usb0"
+python /home/pi/FistBump/clearblinkt.py
+
 if [ -e "/dev/sda" ]; then
         echo "flash drive attached"
+	#number of handshakes existing
+	declare -i prevCap=$(ls /media/usb0 | wc -l)
+	echo $prevCap
 else 
         echo "Error: Booty drive not present"
         echo "Please insert a usb thumb dirve"
-    	python /home/pi/FistBump/arm_trigger.py
+	# show red for 2 second TODO
+    	python /home/pi/FistBump/rgb.py 255 0 0 &
+	sleep 3
+	python /home/pi/FistBump/rgb.py 0 0 0 &
+	python /home/pi/FistBump/arm_trigger.py
 	exit
 fi
 
-#if [ -d "$bootydir" ]; then
-#	echo "flash drive good to go!"
-#else 
-#	echo "Error: Booty drive not present"
-#	echo "Please insert a thumb dirve named 'Booty'"
-#	exit
-#fi
+# ---------------------------------------------------------------------------------------------------- start monitor mode 
+python /home/pi/FistBump/random_purple.py &
+INDI=$!
 
 # Network Scan Time in seconds
 scanTime=20
@@ -26,12 +30,17 @@ scanTime=20
 # start monitor mode
 sudo airmon-ng start wlan0
 
-#start LED goes here
+sleep 2
+# stop monitor setup indicators
+#sudo pkill -f -SIGINT /home/pi/FistBump/random_purple.py &
+kill $INDI
+
+# ---------------------------------------------------------------------------------------------------- start ap scan
+python /home/pi/FistBump/purple_scan.py &
+INDI=$!
+
 echo "------------------Starting Scan"
 
-# start scan
-#
-#{ su pi -c '
 	{ timeout -k 15 15 airodump-ng -a -w my --output-format csv mon0;} &
 PID=$!
 
@@ -40,10 +49,13 @@ sleep 15
 
 #kill scan
 kill -TERM $PID
+#sudo pkill -f -SIGINT /home/pi/FistBump/purple_scan.py &
+kill $INDI
+# ---------------------------------------------------------------------------------------------------- begin parsing results
+python /home/pi/FistBump/random_yellow.py &
+INDI=$!
 
-# begin parsing results
 # 1=bssid  9=power 4=channel 11=data 14=essid 
-#cat my-01.csv
 cat my-01.csv | awk -F "," '{print $1, $9, $4, $11, $14}' > $bootydir/networks.csv && rm my-01.csv
 
 echo "------------------Parsing AP results with clients"
@@ -70,7 +82,13 @@ echo ""
 echo "---RESULTS with clients sorted by power---"
 cat $bootydir/sorted.csv
 
-# start attack
+#sudo pkill -f -SIGINT /home/pi/FistBump/random_yellow.py &
+kill $INDI
+
+# ---------------------------------------------------------------------------------------------------- start attack
+python /home/pi/FistBump/random_colors.py &
+INDI=$!
+
 # 1=bssid 3=channel 4=essid 
 while read f1 f2 f3 f4
 do
@@ -88,6 +106,13 @@ do
 	#kill scan
 	kill -TERM $PID
 done < $bootydir/sorted.csv
+
+#sudo pkill -f -SIGINT /home/pi/FistBump/random_colors.py &
+kill $INDI
+
+# --------------------------------------------------------------------------------------------------- check results
+python /home/pi/FistBump/yellow_scan.py &
+INDI=$!
 
 #clean up
 #stop monitor mode
@@ -112,5 +137,19 @@ b=" handshakes"
 c=$a$captured$b
 echo $c
 
-python /home/pi/FistBump/arm_trigger.py 
+#sudo pkill -f -SIGINT /home/pi/FistBump/yellow_scan.py &
+kill $INDI
+
+#did we get a new handshake?
+if [ $captured > $prevCap ]; then
+	python /home/pi/FistBump/rgb.py 255 0 255 &
+else
+	python /home/pi/FistBump/rgb.py 255 150 0 &
+fi
+
+sleep 3
+
+python /home/pi/FistBump/rgb.py 0 0 0
+python /home/pi/FistBump/clearblinkt.py 
+python /home/pi/FistBump/arm_trigger.py
 exit
