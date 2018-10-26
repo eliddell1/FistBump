@@ -101,7 +101,7 @@ lipopi['shutdown_pin']    = 18
 lipopi['logfile'] = '/home/pi/lipopi.log'  # FULL path to the log file
 # or do this relative to the location of this script?
 
-lipopi['shutdown_wait'] = 1  # seconds - how long to wait before actual shutdown - can be 0 if you want
+lipopi['shutdown_wait'] = 2  # seconds - how long to wait before actual shutdown - can be 0 if you want
 
 # setup the GPIO pins and event triggers
 

