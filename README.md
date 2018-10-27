@@ -1,13 +1,24 @@
 # FistBump
-ProtoType for a handheld device used to grab WPA four way handshakes
 
-## Overview
-This repository contains (UNDER CONSTRUCTION) all the Schematics, Reference Photos, Boot images, scripts, and even 3d printable encloser parts for creating what i am affectionitly calling "FistBump," a handheld device used to capture WPA/WPA2
-4 way handshakes and storing them to removable storage so that the can be bruteforced later.
+## Introduction
+When performing a typical deauth/wpa 4way handshake attack, one must be close enough to the target/clients for the deauth and capture to be effective. This can prove difficult in a typcial engagement, as one would draw suspicion setting up a laptop with a big wifi adapter sticking out and a bunch of terminal windows open.  It just screams hacker right? 
+
+But what if you had a portable device that could launch such an attack with the click of a single button, while being small enough to be comfortably hidden in your hacker hoddy pocket. One with a low profile wifi adapter and removable storage where the handshakes are automatically stored so that you can easily transfer them to your hashcat rig when you get home. FistBump is a prototype of such a device. Did I mention it charges with a standard mini usb charger. Yup!  
+
+## Using FistBump
+To power on FistBump hold down the small button for about a second or until the small red light on the bottom of the device goes off.  When the device is ready it will show either a _single green light_ on the outer led strip at the top of the device if there are no handshakes already saved to the removable storage, or the entire strip will repeatedly _pulse blue_ *_n_* times to indicate the number of successful handshakes currently stored on the removable usb drive.  To start an attack simpley press the larger button. To power off FistBump, simpley press the small power button again. The device will flash _solid yellow_ indicating a shutdown has begun.  The device will also begin a shutdown on its own when the battery gets dangerously low. This will also be indicated by the _solid yellow led_
+
+*_Special Note: if you try to begin an attack without a removable storage device plugged into the USB port the device will show SOLID RED before aborting the attach and returning you to the ready state.
+
+## How It works
+When activated, FistBump will use the aircrack suite to set your wifi adapter into monitor mode _(indicated by a purple scan pattern)_. It then will scan the surrounding networks and create a list of potential targets with active clients. _(random purple pattern)_ Once a list of APs with clients is obtained and sorted _(yellow scanning pattern)_ , a series of deauth / listen attacks will automatically start. _(random rainbow pattern)_ FistBump is designed to go through each AP in our sorted list and listen while it sends 15 deauths, waits ten seconds, sends 15 more and waits 10 more seconds. It will then move to the next one in the list. Once it has iterated through the entire list it will check all the outputs for valid handshakes using cowpatty _(yellow scanning again)_ , removing any cap files that don't contain a valid handshake.  It will then flash _solid purple_ to indicate that a NEW handshake has been captured or _solid yellow_ if it did not, before returning you to the ready state mentioned above in the *Using FistBump* section
 
 ## Disclaimer
 _This Device was developped as a proof of concept and for White Hat Purposes.  You should only use this device on your own or a consenting network and in a controlled enviroment as sending the necessary deauth packets used in the contained scripts could be illegal in your given part of the world. I do not endorse or warrent breaking the law or invading the privacy of others. What you do with this information is up to you. You alone are fully responsible for what you do with this info, and how you use it. I am not responsible for your actions. Please do not hack Wifi points that you are not allowed to!!!
 Don't be a jerk!_
+
+## What is here?
+This repository contains all the Schematics, Reference Photos, Boot images, scripts, and even 3d printable encloser parts for creating a FistBump prototype device.
 
 ## Parts List
 
@@ -43,10 +54,10 @@ For a more complete list of recommended devices [click here](https://null-byte.w
 
 * 1 [Pimoroni Blinkt!](https://shop.pimoroni.com/products/blinkt) _this will be your status indicator_
 
-# Physical Assembly
+## Physical Assembly
 For instructions on the physical assmebly follow the README file, [here](https://github.com/eliddell1/FistBump/tree/master/schematics%26referenceImages) I have also supplied freecad/stl files for the encloser [here](https://github.com/eliddell1/FistBump/tree/master/EncloserFreeCad)
 
-# Software Dependencies
+## Software Dependencies
 This repository will supply an image built of [Raspbian STRETCH OS](https://github.com/eliddell1/FistBump/releases) in the releases section that you could just write to a micro sd, pop into your piZero and be good to go! That said, should you choose to build this yourself off of another OS or with modifications, be aware of the following dependencies.  The scripts for powering on and off the device as well as the trigger and attack button have been suplied in the [scripts folder](https://github.com/eliddell1/FistBump/tree/master/scripts)
 
 * aircrack-ng
@@ -62,5 +73,5 @@ sudo cp cowpatty /usr/bin`
 * blinkt! python library
 `curl https://get.pimoroni.com/blinkt | bash`
 
-# Credit
+## Credit
 Credit where credit is due, the powering on/off schematic and script were deigned by [NeonHorizon](https://github.com/NeonHorizon/lipopi/blob/master/README.power_up_power_down.md)  
