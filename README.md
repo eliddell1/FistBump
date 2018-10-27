@@ -1,5 +1,3 @@
-# **__STILL PUTTING THIS TOGETHER STAY TUNED__**
-
 # FistBump
 ProtoType for a handheld device used to grab WPA four way handshakes
 
@@ -44,8 +42,11 @@ _Do **NOT** use the wifi model as the chip doesn't support monitor/package injec
 
 * 1 [Pimoroni Blinkt!](https://shop.pimoroni.com/products/blinkt) _this will be your status indicator_
 
+# Physical Assembly
+For instructions on the physical assmebly follow the README file, [here](https://github.com/eliddell1/FistBump/tree/master/schematics%26referenceImages) I have also supplied freecad/stl files for the encloser [here](https://github.com/eliddell1/FistBump/tree/master/EncloserFreeCad)
+
 # Software Dependencies
-This repository will supply a ready to go image that you could just write to micro sd or should you choose to build this yourself be aware of the following dependencies
+This repository will supply an image built of [Raspbian STRETCH OS](https://www.raspberrypi.org/downloads/raspbian/) that you could just write to a micro sd, pop into your piZero and be good to go! That said, should you choose to build this yourself off of another OS or with modifications, be aware of the following dependencies.  The scripts for powering on and off the device as well as the trigger and attack button have been suplied in the [scripts folder](https://github.com/eliddell1/FistBump/tree/master/scripts)
 
 * aircrack-ng
 `sudo apt install aircrack-ng`
@@ -60,4 +61,5 @@ sudo cp cowpatty /usr/bin`
 * blinkt! python library
 `curl https://get.pimoroni.com/blinkt | bash`
 
-# **__TO BE CONTINUED UNDER CONSTRUCTION__**
+# Credit
+Credit where credit is due, the powering on/off schematic and script were deigned by [NeonHorizon](https://github.com/NeonHorizon/lipopi/blob/master/README.power_up_power_down.md)  
