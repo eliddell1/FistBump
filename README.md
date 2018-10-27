@@ -77,3 +77,4 @@ sudo cp cowpatty /usr/bin`
 
 ## Credit
 Credit where credit is due, the powering on/off schematic and script were deigned by [NeonHorizon](https://github.com/NeonHorizon/lipopi/blob/master/README.power_up_power_down.md)  
+And obiously this was made possible by the Aircrack suite and cowpatty.
