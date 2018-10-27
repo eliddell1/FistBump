@@ -58,7 +58,9 @@ For a more complete list of recommended devices [click here](https://null-byte.w
 For instructions on the physical assmebly follow the README file, [here](https://github.com/eliddell1/FistBump/tree/master/schematics%26referenceImages) I have also supplied freecad/stl files for the encloser [here](https://github.com/eliddell1/FistBump/tree/master/EncloserFreeCad)
 
 ## Software Dependencies
-This repository will supply an image built of [Raspbian STRETCH OS](https://github.com/eliddell1/FistBump/releases) in the releases section that you could just write to a micro sd, pop into your piZero and be good to go! That said, should you choose to build this yourself off of another OS or with modifications, be aware of the following dependencies.  The scripts for powering on and off the device as well as the trigger and attack button have been suplied in the [scripts folder](https://github.com/eliddell1/FistBump/tree/master/scripts)
+This repository will supply an image built of [Raspbian STRETCH OS](https://github.com/eliddell1/FistBump/releases) in the releases section that you could just write to a micro sd, pop into your piZero and be good to go! That said, should you choose to build this yourself off of another OS or with modifications, be aware of the following dependencies.  The scripts for powering on and off the device as well as the attack button and actual attack have been suplied in the [scripts folder](https://github.com/eliddell1/FistBump/tree/master/scripts)
+
+I chose to start the arm_trigger python script @reboot in crontab and the lipopi python script (for powering on and off the device is set to start via /etc/rc.local
 
 * aircrack-ng
 `sudo apt install aircrack-ng`
