@@ -64,8 +64,6 @@ def fb_setup():
 
     # setup the pin to check the shutdown switch - use the internal pull down resistor
     GPIO.setup(fb['trigger'], GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-    GPIO.setup(fb['light'], GPIO.OUT)
-    GPIO.output(fb['light'], True)
     GPIO.add_event_detect(fb['trigger'], GPIO.RISING, callback=fb_attack, bouncetime=300)
 
 
@@ -75,7 +73,6 @@ def fb_attack(channel):
     global fb
     fb['running'] = True
     print "BANG!"
-    GPIO.output(fb['light'], False)
     blinkt.clear()
     os.system('sudo bash /home/pi/FistBump/fistbump.sh')
     exit()
@@ -96,7 +93,6 @@ fb = {}
 
 # Specify which GPIO pins to use
 fb['trigger'] = 3
-fb['light'] = 2
 fb['running'] = False
 # setup the GPIO pins and event triggers
 fb_setup()
