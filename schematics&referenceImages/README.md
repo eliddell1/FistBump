@@ -25,4 +25,4 @@ Once that proto board is all wired and soldered the rest is quite simple. And ca
 We attache the pi zero to the zero4u usb hat like so:
 
 <img src="https://raw.githubusercontent.com/eliddell1/FistBump/master/schematics%26referenceImages/pi%2Busb_top.jpg" width-"300" height="400">
-<img src="https://raw.githubusercontent.com/eliddell1/FistBump/master/schematics%26referenceImages/pi%2Busb_bottom.jpg" width-"300" height="400">
+<img src="https://raw.githubusercontent.com/eliddell1/FistBump/master/schematics%26referenceImages/pi%2Busb_bottom.jpg" width-"300" height="400"> 
