@@ -14,7 +14,7 @@ __Bottom of proto board__
 
 Obviously it is hard to tell much from those images so I will say this, it would probably behoove you to first solder the header pins, best seen in the top image, to the proto board.  We won't actually use all of them but they will be used for the blinkt chip and the extra pins will give support.  The trigger button ( larger yellow button) is simple, it needs to be wired to the ground (small black wire on right of the bottom image) and GPIO 3 (small yellow wire).
 
-For the power cycle circut reference the bread board image below. Note that the wires coming off our bread board are color coded and will attach to the powerboost 500 or 1000 depending on which you have.
+For the power cycle circut reference the bread board image below. Note that the wires coming off our proto board will attach to the powerboot and are color coded (light blue is battery, light green is env, black is ground and white will be low battery)
 
 <img src="https://raw.githubusercontent.com/eliddell1/FistBump/master/schematics%26referenceImages/powerbutton_powerboost_1000C.png" width="400" height="500">
 
