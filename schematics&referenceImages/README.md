@@ -28,3 +28,4 @@ We attache the pi zero to the zero4u usb hat like so:
 <img src="https://raw.githubusercontent.com/eliddell1/FistBump/master/schematics%26referenceImages/pi%2Busb_bottom.jpg" width="400" height="300"> 
 
 In that bottom image you can see a piece of clear plastic that I basically salvaged from a PiBow zero case, probably not needed.
+
