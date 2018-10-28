@@ -20,6 +20,8 @@ For the power cycle circut reference the bread board image below. Note that the 
 
 <img src="https://raw.githubusercontent.com/eliddell1/FistBump/master/schematics%26referenceImages/powerbutton_powerboost_500C.png" width="400" height="500">
 
+<img src="https://raw.githubusercontent.com/eliddell1/FistBump/master/schematics%26referenceImages/powerboost500_wired.jpg" width="400" height="500">
+
 Once that proto board is all wired and soldered the rest is quite simple. And can be explained with the pics below.
 
 We attache the pi zero to the zero4u usb hat like so:
