@@ -1,5 +1,7 @@
 # FistBump
 
+<img src="https://github.com/eliddell1/FistBump/blob/master/schematics%26referenceImages/headshot.jpg" width="300" height="400">
+
 ## Introduction
 When performing a typical deauth/wpa 4way handshake attack, one must get close enough to the target/clients for the deauth and capture to be effective. This can prove difficult in a typcial engagement, as one would draw suspicion setting up a laptop with a big wifi adapter sticking out and a bunch of terminal windows open.  It just screams hacker right? 
 
