@@ -16,7 +16,7 @@ fistbump.sh which utilizes the aircrack method in the repository incase for some
 
 To power on FistBump hold down the small button for about a second or until the small red light on the bottom of the device goes off.  When the device is ready it will show either a __single green light__ or a __blue pulsing pattern__ on the strip of leds at the top of the device. Both indicate that the device is armed and ready to attack. The __single green light__ simply means there are currently no hashes on the device, while the __blue pulsing pattern__ indicates how many hash files are currently saved on the device. 
 
-_Note: (pulse, pulse, pause, repeat) would mean 2 hash files are saved. Hash files can contain more than one hash and from more than one network. The hash files are saved to the external usb card with the naming convention {date_time_Captured}.{hashcat mode}. For example, 4 way handshakes are cracked using '$ hashcat -m 2500... ' so a file containing 4 way handshakes could be named 2016-01-12-15-12.2500 while a PMKID hash file captured from the same attack would be 2016-01-12-15-12.2500.6800. 
+_Note: (pulse, pulse, pause, repeat) would mean 2 hash files are saved. Hash files can contain more than one hash and from more than one network. The hash files are saved to the external usb card with the naming convention {date_time_Captured}.{hashcat mode}. For example, 4 way handshakes are cracked using '$ hashcat -m 2500... ' so a file containing 4 way handshakes could be named 201810290107.2500 while a PMKID hash file captured from the same attack would be 201810290107.16800 as the mode forcracking PMKID in Hashcat is 16800. 
 
 ### Starting an Attack 
 
