@@ -111,6 +111,8 @@ sudo cp cowpatty /usr/bin`
 ## Credits
 Credit where credit is due: 
 
+* [ZerBera](https://github.com/ZerBea) for their development of hcxdumtool and hcxtools used in this prototype
+
 * The powering on/off schematic and script were designed by [NeonHorizon](https://github.com/NeonHorizon/lipopi/blob/master/README.power_up_power_down.md)  
 
 * Call out to 'atom' of the hashcat forums for this post: https://hashcat.net/forum/thread-7717.html
