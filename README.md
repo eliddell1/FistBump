@@ -109,5 +109,12 @@ sudo cp cowpatty /usr/bin`
 `curl https://get.pimoroni.com/blinkt | bash`
 
 ## Credits
-Credit where credit is due, the powering on/off schematic and script were deigned by [NeonHorizon](https://github.com/NeonHorizon/lipopi/blob/master/README.power_up_power_down.md)  
-And obiously this was made possible by the Aircrack suite and cowpatty.
+Credit where credit is due: 
+
+* The powering on/off schematic and script were designed by [NeonHorizon](https://github.com/NeonHorizon/lipopi/blob/master/README.power_up_power_down.md)  
+
+* Call out to 'atom' of the hashcat forums for this post: https://hashcat.net/forum/thread-7717.html
+
+* special call out to icarus255 and the rest of the [Hak5 Community](https://forums.hak5.org) for being inspirational and all that.
+ 
+
