@@ -35,6 +35,9 @@ The attack leverages the latest WPA/WPA2 attack tool, [hcxdumptool](https://hash
 
 When the attack is complete you will see the strip of LEDs light up __solid purple__ if new hashes were collected during the attack, or __solid yellow__ if no new hashes were collected.
 
+_Now one might say, "If I'm trying to be stealthy, whats with all these beautiful flashy LEDs?"  Thats a valid point.  Again,
+this is merely a proof of concept, but should you really have the need, the LED strip can be easily removed and replaced with out any altercations to the code. Of course then you just have to assume your attack went through and completed as you will have no indication._
+
 ### Powering Down
 
 To power off FistBump, simply press the small power button again. The device will flash __solid yellow__ indicating a shutdown has begun.  Once all lights, external and internal are off, the device is off. The device will also begin a shutdown on its own when the battery gets dangerously low. This will also be indicated by the __solid yellow__ indicator and may come unexpectedly. Don't be alarmed as it is for the safety and integrety of the device img.
