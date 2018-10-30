@@ -5,17 +5,38 @@
 ## Introduction
 When performing a typical deauth/wpa 4way handshake attack, one must get close enough to the target/clients for the deauth and capture to be effective. This can prove difficult in a typcial engagement, as one would draw suspicion setting up a laptop with a big wifi adapter sticking out and a bunch of terminal windows open.  It just screams hacker right? 
 
-But what if you had a portable device that could launch such an attack with the click of a single button, while being small enough to be comfortably hidden in your hacker hoody pocket. A device with a low profile wifi adapter and removable storage where the handshakes are automatically stored so that you can easily transfer them to your hashcat rig when you get home. FistBump is a prototype of such a device. Did I mention it charges with a standard mini usb charger? Well it does.  
+But what if you had a portable device that could launch such an attack with the click of a single button, while being small enough to be comfortably hidden in your hacker hoody pocket. A device with a low profile wifi adapter and removable storage where the handshakes are automatically stored so that you can easily transfer them to your hashcat rig when you get home. FistBump is a prototype of such a device. Did I mention it charges with a standard mini usb charger? Well it does.
+
+__UPDATE__
+
+As of Version 2.0 it will now also capture PMKID hashes as well. I migrated from aircrack to hcxdumptool.  I have left the old
+fistbump.sh which utilizes the aircrack method in the repository incase for some reason someone wants that, but now the attack script is wpa_hashgrab.sh _(It not only adds the capability to capture the PMKID hashes as well as 4 way handhsakes but its also much faster and a cleaner execution overall)_
 
 ## Using FistBump
-To power on FistBump hold down the small button for about a second or until the small red light on the bottom of the device goes off.  When the device is ready it will show either a _single green light_ on the outer led strip at the top of the device if there are no handshakes already saved to the removable storage, or the entire strip will repeatedly _pulse blue_ *_n_* times to indicate the number of successful handshakes currently stored on the removable usb drive.  To start an attack simpley press the larger button. To power off FistBump, simpley press the small power button again. The device will flash _solid yellow_ indicating a shutdown has begun.  The device will also begin a shutdown on its own when the battery gets dangerously low. This will also be indicated by the _solid yellow led_
 
-*_Special Note: if you try to begin an attack without a removable storage device plugged into the USB port the device will show SOLID RED before aborting the attach and returning you to the ready state.
+To power on FistBump hold down the small button for about a second or until the small red light on the bottom of the device goes off.  When the device is ready it will show either a __single green light__ or a __blue pulsing pattern__ on the strip of leds at the top of the device. Both indicate that the device is armed and ready to attack. The __single green light__ simply means there are currently no hashes on the device, while the __blue pulsing pattern__ indicates how many hash files are currently saved on the device. 
 
-## How It works
-When activated, FistBump will use the aircrack suite to set your wifi adapter into monitor mode _(indicated by a purple scan pattern)_. It then will scan the surrounding networks and create a list of potential targets with active clients. _(random purple pattern)_ Once a list of APs with clients is obtained and sorted _(yellow scanning pattern)_ , a series of deauth / listen attacks will automatically start. _(random rainbow pattern)_ FistBump is designed to go through each AP in our sorted list and listen while it sends 15 deauths, waits ten seconds, sends 15 more and waits 10 more seconds. It will then move to the next one in the list. Once it has iterated through the entire list it will check all the outputs for valid handshakes using cowpatty _(yellow scanning again)_ , removing any cap files that don't contain a valid handshake.  It will then flash _solid purple_ to indicate that a NEW handshake has been captured or _solid yellow_ if it did not, before returning you to the ready state mentioned above in the *Using FistBump* section
+_Note: (pulse, pulse, pause, repeat) would mean 2 hash files are saved. Hash files can contain more than one hash and from more than one network. The hash files are saved to the external usb card with the naming convention {date_time_Captured}.{hashcat mode}. For example, 4 way handshakes are cracked using '$ hashcat -m 2500... ' so a file containing 4 way handshakes could be named 201810290107.2500 while a PMKID hash file captured from the same attack would be 201810290107.16800 as the mode forcracking PMKID in Hashcat is 16800. 
+
+### Starting an Attack 
+
+To start an attack simply press the larger button.   
+
+Before the actual attack begins FistBump will make sure you have a USB thumb drive attached where it will store the hashes it collects.  If no USB drive is present it will light up __solid red__ to indicate the missing drive and abort, sending you back to the ready state mentioned above.  Don't worry, you can simply insert your USB thumbdrive and try again. 
+
+With a thumb drive present it will begin by putting your wifi adapter into the proper state, monitor mode, and kill any processes, like wpa_supplicant, that may interfere.  This stage will be indicated by a __purple scan pattern__. 
+
+When you see a __random flashing rainbow pattern__, the attack has begun. The attack leverages the latest WPA/WPA2 attack tool, [hcxdumptool](https://hashcat.net/forum/thread-7717.html) and is set to run for 40 seconds, which in my experience should be plenty of time to at least grab some handshakes.  If you wish to change this, you can edit the wpa_hashgrab.sh script found in scripts/FistBump/hashgrab.sh of this repository or in /home/pi/FistBump/ on the actual pi.
+
+When the attack is complete you will see __solid purple__ if new hashes were collected during the attack, or __solid yellow__
+if no new hashes were collected.
+
+### Powering Down
+
+To power off FistBump, simply press the small power button again. The device will flash __solid yellow__ indicating a shutdown has begun.  Once all lights, external and internal are off, the device is off. The device will also begin a shutdown on its own when the battery gets dangerously low. This will also be indicated by the __solid yellow led__ and may come unexpectedly. Don't be alarmed as it is for the safety and integrety of the device img.
 
 ## Disclaimer
+
 _This Device was developped as a proof of concept and for White Hat Purposes.  You should only use this device on your own or a consenting network and in a controlled enviroment as sending the necessary deauth packets used in the contained scripts could be illegal in your given part of the world. I do not endorse or warrent breaking the law or invading the privacy of others. What you do with this information is up to you. You alone are fully responsible for what you do with this info, and how you use it. I am not responsible for your actions. Please do not hack Wifi points that you are not allowed to!!!
 Don't be a jerk!_
 
@@ -62,9 +83,11 @@ For instructions on the physical assmebly follow the README file, [here](https:/
 I have also supplied freecad/stl files for the encloser [here](https://github.com/eliddell1/FistBump/tree/master/EncloserFreeCad)
 
 ## Software Dependencies
-This repository will supply an image built of [Raspbian STRETCH OS](https://github.com/eliddell1/FistBump/releases) in the releases section that you could just write to a micro sd, pop into your piZero and be good to go! That said, should you choose to build this yourself off of another OS or with modifications, be aware of the following dependencies.  The scripts for powering on and off the device as well as the attack button and actual attack have been suplied in the [scripts folder](https://github.com/eliddell1/FistBump/tree/master/scripts)
+This repository will supply an image built off [Raspbian STRETCH OS](https://github.com/eliddell1/FistBump/releases) in the releases section that you could just write to a micro sd, pop into your piZero and be good to go! That said, should you choose to build this yourself off of another OS or with modifications, be aware of the following dependencies.  The scripts for powering on and off the device as well as the attack button and actual attack have been suplied in the [scripts folder](https://github.com/eliddell1/FistBump/tree/master/scripts)
 
-I chose to start the arm_trigger python script @reboot in crontab and the lipopi python script (for powering on and off the device is set to start via /etc/rc.local
+I chose to start the arm_trigger python script @reboot in crontab and the lipopi python script (for powering on and off the device) is set to start via /etc/rc.local
+
+### version 1 dependencies
 
 * aircrack-ng
 `sudo apt install aircrack-ng`
@@ -76,9 +99,24 @@ cd cowpatty-4.6
 make cowpatty
 sudo cp cowpatty /usr/bin`
 
+### version 2 dependencies 
+* [hcxdumptool v4.2.0 or higher](https://github.com/ZerBea/hcxdumptool)
+
+* [hcxtools v4.2.0 or higher](https://github.com/ZerBea/hcxtools)
+
+### indicator depenencies
 * blinkt! python library
 `curl https://get.pimoroni.com/blinkt | bash`
 
-## Credit
-Credit where credit is due, the powering on/off schematic and script were deigned by [NeonHorizon](https://github.com/NeonHorizon/lipopi/blob/master/README.power_up_power_down.md)  
-And obiously this was made possible by the Aircrack suite and cowpatty.
+## Credits
+Credit where credit is due: 
+
+* [ZerBera](https://github.com/ZerBea) for their development of hcxdumtool and hcxtools used in this prototype
+
+* The powering on/off schematic and script were designed by [NeonHorizon](https://github.com/NeonHorizon/lipopi/blob/master/README.power_up_power_down.md)  
+
+* Call out to 'atom' of the hashcat forums for this post: https://hashcat.net/forum/thread-7717.html
+
+* special call out to icarus255 and the rest of the [Hak5 Community](https://forums.hak5.org) for being inspirational and all that.
+ 
+
