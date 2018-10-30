@@ -32,8 +32,8 @@ def make_gaussian(fwhm):
 def puls():
     global fb
     if fb['running']:
-        #print('killing lights')
-        blinkt.clear()
+	print('killing lights')
+	blinkt.clear()
         return
     for z in list(range(1, 10)[::-1]) + list(range(1, 10)):
         fwhm = 5.0/z
@@ -72,16 +72,16 @@ def fb_setup():
 def fb_attack(channel):
     global fb
     fb['running'] = True
-    print ("BANG!")
+    print "BANG!"
     blinkt.clear()
-    os.system('sudo sh /home/pi/FistBump/wpa_hashgrab.sh')
+    os.system('sudo bash /home/pi/FistBump/fistbump.sh')
     exit()
 
 
 # Close the log file, reset the GPIO pins
 def fb_cleanup():
     global fb
-    #GPIO.cleanup()
+    GPIO.cleanup()
 
 
 # Main --------------------------------------------
@@ -90,14 +90,15 @@ def fb_cleanup():
 # Setup fb global variable array
 
 fb = {}
-fb_cleanup()
+
 # Specify which GPIO pins to use
 fb['trigger'] = 3
 fb['running'] = False
 # setup the GPIO pins and event triggers
 fb_setup()
 
-
+puls()
+time.sleep(1)
 
 # Although the shutdown is triggered by an interrupt, we still need a loop
 # to keep the script from exiting - just do a very long sleep
@@ -115,14 +116,14 @@ while fb['running'] != True:
 		blinkt.show()
 	time.sleep(2)
 
-
+#time.sleep(6000)
 
 # clean up if the script exits without machine shutdown
 
-#fb_cleanup()
+fb_cleanup()
 
-puls()
-time.sleep(1)
+
+
 
 
 
