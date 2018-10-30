@@ -7,16 +7,18 @@ When performing a typical deauth/wpa 4way handshake attack, one must get close e
 
 But what if you had a portable device that could launch such an attack with the click of a single button, while being small enough to be comfortably hidden in your hacker hoody pocket. A device with a low profile wifi adapter and removable storage where the handshakes are automatically stored so that you can easily transfer them to your hashcat rig when you get home. FistBump is a prototype of such a device. Did I mention it charges with a standard mini usb charger? Well it does.
 
-__UPDATE__
+__UPDATES__
 
-As of Version 2.0 it will now also capture PMKID hashes as well. I migrated from aircrack to hcxdumptool.  I have left the old
+As of __Version 2.0__ it will now also capture PMKID hashes as well. I migrated from aircrack to hcxdumptool.  I have left the old
 fistbump.sh which utilizes the aircrack method in the repository incase for some reason someone wants that, but now the attack script is wpa_hashgrab.sh. _(It not only adds the capability to capture the PMKID hashes as well as 4 way handhsakes but its also much faster and a cleaner execution overall)_
+
+As of __Version 2.1__ you can now target specific networks by saving a file named targets.txt to the removable USB drive with the BSSID(s) of your target(s) minus the colons. For instance, if your target BSSID is XX:XX:XX:XX:XX:XX, your targets.txt file will say XXXXXXXXXXXX. For multiple targets just put each BSSID on a new line.  HcxDumptool supports up to 64 specific targets. To revert back to a broad untargeted attack, simply remove the targets.txt file from your removable storage.
 
 ## Using FistBump
 
 To power on FistBump, hold down the small button for about a second or until the red light on the bottom of the device goes off.  When the device is ready it will show either a __single green light__ or a __blue pulsing pattern__ on the strip of leds at the top of the device. Both indicate that the device is armed and ready to attack. The __single green light__ simply means there are currently no hashes stored on the device, while the __blue pulsing pattern__ indicates how many hash files are currently saved on the device. 
 
-_Note: (pulse, pulse, pause, repeat) would mean 2 hash files are saved. Hash files can contain more than one hash and from more than one network. The hash files are saved to the external usb drive with the naming convention {date_time_Captured}.{hashcat mode}. For example, 4 way handshakes are cracked using `$ hashcat -m 2500... `, so a file containing 4 way handshakes would be named 201810290107.2500 while a PMKID hash file captured from the same attack would be 201810290107.16800, as the hashcat mode forcracking PMKID is 16800._ 
+_Note: (pulse, pulse, pause, repeat) would mean 2 hash files are saved. Hash files can contain more than one hash and from more than one network. The hash files are saved to the external usb drive with the naming convention {date_time_Captured}.{hashcat mode}. For example, 4 way handshakes are cracked using `$ hashcat -m 2500... `, so a file containing 4 way handshakes would be named 201810290107.2500 while a PMKID hash file captured from the same attack would be 201810290107.16800, as the hashcat mode forcracking PMKID is 16800._  As of Version 2.1 if you specified a target (see updates section for v2.2), the captured hashes will be prepended with "targeted_" example: targted_201810290107.2500
 
 ### Starting an Attack 
 
@@ -26,7 +28,10 @@ Before the actual attack begins, FistBump will make sure you have a USB thumb dr
 
 With a thumb drive present it will begin by putting your wifi adapter into the proper state, monitor mode, and kill any processes, like wpa_supplicant, that may interfere.  This stage will be indicated by a __purple scan pattern__. 
 
-When you see a __random flashing rainbow pattern__, the attack has begun! The attack leverages the latest WPA/WPA2 attack tool, [hcxdumptool](https://hashcat.net/forum/thread-7717.html) and is set to run for 40 seconds, which in my experience should be plenty of time to at least grab some handshakes.  If you wish to change this, you can edit the wpa_hashgrab.sh script found in scripts/FistBump/hashgrab.sh of this repository or in /home/pi/FistBump/ on the actual pi.
+When you see a __random flashing rainbow pattern__ or __random flashing purple pattern__, the attack has begun! 
+The Rainbow pattern indicates you are doing a broad attack while the purple pattern indicates that you have specified a target (see updates section for v2.1)
+
+The attack leverages the latest WPA/WPA2 attack tool, [hcxdumptool](https://hashcat.net/forum/thread-7717.html) and is set to run for 40 seconds, which in my experience should be plenty of time to at least grab some handshakes.  If you wish to change this, you can edit the wpa_hashgrab.sh script found in scripts/FistBump/hashgrab.sh of this repository or in /home/pi/FistBump/ on the actual pi.
 
 When the attack is complete you will see the strip of LEDs light up __solid purple__ if new hashes were collected during the attack, or __solid yellow__ if no new hashes were collected.
 
