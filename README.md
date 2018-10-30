@@ -99,12 +99,12 @@ I chose to start the "arm_trigger" python script @reboot in crontab and the lipo
 * aircrack-ng
 `sudo apt install aircrack-ng`
 
-* ~~cowpatty ~~
-~~`wget http://www.willhackforsushi.com/code/cowpatty/4.6/cowpatty-4.6.tgz
+* cowpatty
+`wget http://www.willhackforsushi.com/code/cowpatty/4.6/cowpatty-4.6.tgz
 tar zxfv cowpatty-4.6.tgz
 cd cowpatty-4.6
 make cowpatty
-sudo cp cowpatty /usr/bin`~~
+sudo cp cowpatty /usr/bin`
 
 ### version 2 dependencies 
 * [hcxdumptool v4.2.0 or higher](https://github.com/ZerBea/hcxdumptool)
