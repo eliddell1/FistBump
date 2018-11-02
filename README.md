@@ -1,5 +1,5 @@
 # FistBump
-[Latest Release v2.1.0](https://github.com/eliddell1/FistBump/releases)
+[<img src="https://img.shields.io/badge/Latest%20Release-v.2.1.0-green.svg">](https://github.com/eliddell1/FistBump/releases)
 
 <img src="https://github.com/eliddell1/FistBump/blob/master/schematics%26referenceImages/headshot.jpg" width="300" height="400">
 
