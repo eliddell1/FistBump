@@ -64,6 +64,11 @@ sudo kill -TERM $PID
 sudo hcxpcaptool -z $bootydir/$DATE.16800 -o $bootydir/$DATE.2500 $DATE.pcapng
 sudo rm $DATE.pcapng
 
+# if  we have a handshake file lets make a catalog of essids in that file
+if [ -f $bootydir/$DATE.2500 ]; then
+	wlanhcxinfo -i $bootydir/$DATE.2500 -a -e -o $bootydir/$DATE.catalog
+fi
+
 kill $INDI
 
 # -----check results
