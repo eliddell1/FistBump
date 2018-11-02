@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
 # arm_trigger.py
+# Handles the ready and armed state of the FistBump device
+# This script is started @reboot in crontab
+
+# 2018 - Erik Liddell - Freely Distributed under MIT License
 
 import os
 import RPi.GPIO as GPIO
