@@ -15,6 +15,11 @@ fistbump.sh which utilizes the aircrack method in the repository incase for some
 
 As of __Version 2.1__ you can now target specific networks by saving a file named targets.txt to the removable USB drive with the BSSID(s) of your target(s) minus the colons. For instance, if your target BSSID is XX:XX:XX:XX:XX:XX, your targets.txt file will say XXXXXXXXXXXX. For multiple targets just put each BSSID on a new line.  HcxDumptool supports up to 64 specific targets. To revert back to a broad untargeted attack, simply remove the targets.txt file from your removable storage.
 
+__Planned for Next Release__
+* add a log file for each successful handshake captured, identifying BSSIDs and ESSIDs in .2500 file
+* remove all aircrack dependencie and kill wpa_supplicant and network manager manually instead of using `aircrack-ng check kill`
+* support potential capturing of plainmasterkeys, usernames and password
+
 ## Using FistBump
 
 To power on FistBump, hold down the small button for about a second or until the red light on the bottom of the device goes off.  When the device is ready it will show either a __single green light__ or a __blue pulsing pattern__ on the strip of leds at the top of the device. Both indicate that the device is armed and ready to attack. The __single green light__ simply means there are currently no hashes stored on the device, while the __blue pulsing pattern__ indicates how many hash files are currently saved on the device. 
