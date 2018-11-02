@@ -9,7 +9,7 @@
 import os
 import RPi.GPIO as GPIO
 import time
-
+import fnmatch
 import colorsys
 
 from sys import exit
@@ -107,10 +107,7 @@ fb_setup()
 # to keep the script from exiting - just do a very long sleep
 
 while fb['running'] != True:
-	num = len([f for f in os.listdir("/media/usb0")])
-	if os.path.exists("/media/usb0/targets.txt"):
-		num -= 1
-		
+	num = len(fnmatch.filter(os.listdir("/media/usb0"),'*.2500')) +len(fnmatch.filter(os.listdir(your_dir),'*.16800'))
 	if num > 0:
 		while num > 0:
 			print ("num:",num)
