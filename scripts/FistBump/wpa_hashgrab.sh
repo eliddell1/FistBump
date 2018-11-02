@@ -66,7 +66,7 @@ sudo rm $DATE.pcapng
 
 # if  we have a handshake file lets make a catalog of essids in that file
 if [ -f $bootydir/$DATE.2500 ]; then
-	wlanhcxinfo -i $bootydir/$DATE.2500 -a -e -o $bootydir/$DATE.catalog
+	wlanhcxinfo -i $bootydir/$DATE.2500 -a -e > $bootydir/$DATE.catalog
 fi
 
 kill $INDI
