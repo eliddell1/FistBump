@@ -107,7 +107,7 @@ fb_setup()
 # to keep the script from exiting - just do a very long sleep
 
 while fb['running'] != True:
-	num = len(fnmatch.filter(os.listdir("/media/usb0"),'*.2500')) + len(fnmatch.filter(os.listdir(your_dir),'*.16800'))
+	num = len(fnmatch.filter(os.listdir("/media/usb0"),'*.2500')) + len(fnmatch.filter(os.listdir("/media/usb0"),'*.16800'))
 	if num > 0:
 		while num > 0:
 			print ("num:",num)
