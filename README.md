@@ -1,5 +1,5 @@
 # FistBump
-[<img src="https://img.shields.io/badge/Latest%20Release-v.2.1.0-green.svg">](https://github.com/eliddell1/FistBump/releases)
+[<img src="https://img.shields.io/badge/Latest%20Release-v.2.2.0-green.svg">](https://github.com/eliddell1/FistBump/releases)
 
 <img src="https://github.com/eliddell1/FistBump/blob/master/schematics%26referenceImages/headshot.jpg" width="300" height="400">
 
@@ -15,8 +15,9 @@ fistbump.sh which utilizes the aircrack method in the repository incase for some
 
 As of __Version 2.1__ you can now target specific networks by saving a file named targets.txt to the removable USB drive with the BSSID(s) of your target(s) minus the colons. For instance, if your target BSSID is XX:XX:XX:XX:XX:XX, your targets.txt file will say XXXXXXXXXXXX. For multiple targets just put each BSSID on a new line.  HcxDumptool supports up to 64 specific targets. To revert back to a broad untargeted attack, simply remove the targets.txt file from your removable storage.
 
+As of __version 2.2__ For every .2500 file created a .catalog file is also created of the same name.  This file is a catalog BSSIDs & ESSIDs of which handhsakes were captured. 
+
 __Planned for Next Release__
-* add a log file for each successful handshake captured, identifying BSSIDs and ESSIDs in .2500 file
 * remove all aircrack dependencie and kill wpa_supplicant and network manager manually instead of using `aircrack-ng check kill`
 * support potential capturing of plainmasterkeys, usernames and password
 
