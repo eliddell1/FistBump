@@ -1,4 +1,10 @@
- #!/bin/bash
+#!/bin/bash
+
+# This script is the actual FistBump attack
+# Called by arm_trigger.py
+
+# 2018 - Erik Liddell Freely distributed under MIT license.
+
 # VARIABLES
 DATE=$(date +"%Y%m%d%H%M")
 bootydir="/media/usb0"
