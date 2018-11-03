@@ -20,7 +20,7 @@ if [ -e "/dev/sda" ]; then
 else 
         echo "Error: Booty drive not present"
         echo "Please insert a usb thumb dirve"
-	# show red for 2 second TODO
+	# show red for 3 seconds
     	python /home/pi/FistBump/rgb.py 255 0 0 &
 	sleep 3
 	python /home/pi/FistBump/rgb.py 0 0 0 &
@@ -31,8 +31,11 @@ fi
 # ---- set up interface
 python /home/pi/FistBump/purple_scan.py &
 INDI=$!
-sudo airmon-ng check kill
 
+# kill wpa_supplicant
+sudo killall wpa_supplicant
+
+# setup interface
 sudo ip link set wlan0 down
 sudo iw dev wlan0 set type monitor
 sudo rfkill unblock all
