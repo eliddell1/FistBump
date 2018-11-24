@@ -1,7 +1,7 @@
 # FistBump
 [<img src="https://img.shields.io/badge/Latest%20Release%20Image-v.2.3.0-green.svg">](https://github.com/eliddell1/FistBump/releases)
 
-[<img src="https://img.shields.io/badge/Latest%20Device%20Iterration-BLE%20Edition-blue.svg">](https://github.com/eliddell1/Project-Blue-Fist)
+[<img src="https://img.shields.io/badge/Latest%20Device%20Iteration-BLE%20Edition-blue.svg">](https://github.com/eliddell1/Project-Blue-Fist)
 
 _This Repo was a P.O.C. and is deprecated for a BLE peripheral Edition. STAY TUNED!_
 
